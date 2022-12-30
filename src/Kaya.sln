@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaya.Service.Domain", "Kaya.Service.Domain\Kaya.Service.Domain.csproj", "{009637A1-4F3F-4387-9463-558A1E08A2B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaya.Service.Application", "Kaya.Service.Application\Kaya.Service.Application.csproj", "{C0B11470-BBEA-4DEE-82F9-9E542F0C41A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaya.Service.WebAPI", "Kaya.Service.WebAPI\Kaya.Service.WebAPI.csproj", "{76AE3D89-0493-4D93-A36C-F32679BC9861}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaya.Service.WebAPI.Contracts", "Kaya.Service.WebAPI.Contracts\Kaya.Service.WebAPI.Contracts.csproj", "{1F36482E-E67F-4038-AD00-CA2BC8408B4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaya.AspNetCore", "Kaya.AspNetCore\Kaya.AspNetCore.csproj", "{04219B50-FD28-4F52-9A1A-AD26654C5E5D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{56872272-3CBB-48E0-AE59-AA7B3B978CD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaya", "Kaya\Kaya.csproj", "{039EAA85-FD94-4453-A087-977DCA4A7D5A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{009637A1-4F3F-4387-9463-558A1E08A2B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{009637A1-4F3F-4387-9463-558A1E08A2B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{009637A1-4F3F-4387-9463-558A1E08A2B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{009637A1-4F3F-4387-9463-558A1E08A2B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0B11470-BBEA-4DEE-82F9-9E542F0C41A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0B11470-BBEA-4DEE-82F9-9E542F0C41A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0B11470-BBEA-4DEE-82F9-9E542F0C41A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0B11470-BBEA-4DEE-82F9-9E542F0C41A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76AE3D89-0493-4D93-A36C-F32679BC9861}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76AE3D89-0493-4D93-A36C-F32679BC9861}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76AE3D89-0493-4D93-A36C-F32679BC9861}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76AE3D89-0493-4D93-A36C-F32679BC9861}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F36482E-E67F-4038-AD00-CA2BC8408B4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F36482E-E67F-4038-AD00-CA2BC8408B4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F36482E-E67F-4038-AD00-CA2BC8408B4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F36482E-E67F-4038-AD00-CA2BC8408B4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04219B50-FD28-4F52-9A1A-AD26654C5E5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04219B50-FD28-4F52-9A1A-AD26654C5E5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04219B50-FD28-4F52-9A1A-AD26654C5E5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04219B50-FD28-4F52-9A1A-AD26654C5E5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{039EAA85-FD94-4453-A087-977DCA4A7D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{039EAA85-FD94-4453-A087-977DCA4A7D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{039EAA85-FD94-4453-A087-977DCA4A7D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{039EAA85-FD94-4453-A087-977DCA4A7D5A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{009637A1-4F3F-4387-9463-558A1E08A2B3} = {56872272-3CBB-48E0-AE59-AA7B3B978CD4}
+		{76AE3D89-0493-4D93-A36C-F32679BC9861} = {56872272-3CBB-48E0-AE59-AA7B3B978CD4}
+		{1F36482E-E67F-4038-AD00-CA2BC8408B4D} = {56872272-3CBB-48E0-AE59-AA7B3B978CD4}
+		{C0B11470-BBEA-4DEE-82F9-9E542F0C41A8} = {56872272-3CBB-48E0-AE59-AA7B3B978CD4}
+	EndGlobalSection
+EndGlobal
