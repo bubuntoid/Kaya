@@ -35,14 +35,14 @@ public class GetEventsQuery : IRequest<IReadOnlyCollection<Event>>, IProjectAuth
                 .Include(s => s.Headers)
                 .Where(s => s.Project.PrivateKey == request.PrivateKey);
 
-            if (request.Header.Value != null && request.Header.Header != null)
+            if (request.Header is { Value: { }, Header: { } })
                 query = query.Where(s => s.Headers.Any(h => h.Key == request.Header.Header && h.Value == request.Header.Value));
 
             if (request.From.HasValue)
                 query = query.Where(s => s.Date >= request.From);
 
             if (request.To.HasValue)
-                query = query.Where(s => s.Date <= request.From);
+                query = query.Where(s => s.Date <= request.To);
 
             if (string.IsNullOrWhiteSpace(request.Tag) == false)
                 query = query.Where(s => s.Tags.Contains(request.Tag));

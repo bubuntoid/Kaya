@@ -30,7 +30,7 @@ public class AddEventCommand : IRequest<DomainError>, IProjectAuthServiceRequire
             await dbContext.Events.AddAsync(new Event
             {
                 Id = Guid.NewGuid(),
-                Date = DateTime.UtcNow,
+                Date = DateTime.Now,
                 ProjectId = authService.Project.Id,
                 
                 Tags = request.Tags,

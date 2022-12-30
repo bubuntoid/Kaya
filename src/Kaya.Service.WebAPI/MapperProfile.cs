@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Kaya.Service.Domain.Entities;
 using Kaya.Service.Domain.Models;
+using Kaya.Service.Domain.Models.Dashboard;
 using Kaya.Service.WebAPI.Contracts.Project;
+using Kaya.Service.WebAPI.Contracts.Project.Dashboard;
 using Kaya.Service.WebAPI.Contracts.Project.Settings;
 using Kaya.Service.WebAPI.Contracts.User;
 
@@ -21,5 +23,7 @@ public class MapperProfile : Profile
                 Tag = di.Key,
                 ColorStyle = di.Value,
             })));
+
+        CreateMap<ProjectDashboard, ProjectDashboardDto>();
     }
 }

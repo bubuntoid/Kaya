@@ -1,6 +1,8 @@
-﻿namespace Kaya.Service.Domain.Models.Dashboard;
+﻿using Kaya.Service.Domain.Models.Dashboard;
 
-public class ProjectDashboard
+namespace Kaya.Service.WebAPI.Contracts.Project.Dashboard;
+
+public class ProjectDashboardDto
 {
     public IDictionary<string, ICollection<DateTime>> Tags { get; set; } = new Dictionary<string, ICollection<DateTime>>();
 

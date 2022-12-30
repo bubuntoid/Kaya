@@ -10,6 +10,7 @@ using Kaya.AspNetCore;
 using Kaya.Service.Domain.Migrations;
 using Kaya.Service.WebAPI;
 using Kaya.Service.WebAPI.Extensions;
+using Kaya.Service.WebAPI.Filters;
 using Kaya.Service.WebAPI.Settings;
 using MediatR;
 
@@ -61,17 +62,22 @@ app.UseKayaLogging();
 
 app.UseRouting();
 
+app.UseHangfireDashboard("/hangfire", new DashboardOptions
+{
+    Authorization = new [] { new NoDashboardAuthorizationFilter() }
+});
+
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapFallbackToAreaController("Index", "Index", "");
 });
-
-app.UseHangfireDashboard();
 
 app.UseHttpsRedirection();
 
 app.MapControllers();
 
 app.Migrate();
+
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 app.Run();

@@ -44,8 +44,12 @@ public class InitializeDatabaseMigration : Migration
         Create.Table("systemEventTagSetting")
             .WithColumn("tag").AsString(64).NotNullable().PrimaryKey()
             .WithColumn("style").AsString(64).NotNullable();
-        
-        // todo: write system tags migration
+
+        Insert.IntoTable("systemEventTagSetting").Row(new { tag = "Information", style = " " });
+        Insert.IntoTable("systemEventTagSetting").Row(new { tag = "Error", style = " " });
+        Insert.IntoTable("systemEventTagSetting").Row(new { tag = "Trace", style = " " });
+        Insert.IntoTable("systemEventTagSetting").Row(new { tag = "Success", style = " " });
+        Insert.IntoTable("systemEventTagSetting").Row(new { tag = "Debug", style = " " });
 
     }
 

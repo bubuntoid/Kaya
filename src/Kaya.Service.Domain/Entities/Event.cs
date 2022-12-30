@@ -27,6 +27,10 @@ public class Event
         {
             builder.ToTable("event");
             builder.HasKey(s => s.Id);
+
+            builder.HasOne(s => s.Content);
+            
+            builder.HasMany(s => s.Headers);
             
             builder.Property(s => s.Tags)
                 .HasConversion(

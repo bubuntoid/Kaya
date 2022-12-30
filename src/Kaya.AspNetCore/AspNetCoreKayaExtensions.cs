@@ -8,7 +8,7 @@ public static class AspNetCoreKayaExtensions
 {
     public static void AddKayaLogging(this IServiceCollection services, IKayaCredentials credentials)
     {
-        services.AddTransient(typeof(IKayaHttpClient), typeof(KayaHttpClient));
+        services.AddTransient(typeof(IKayaHttpClient), _ => new KayaHttpClient(credentials.Endpoint));
         services.AddScoped(typeof(IKayaContext), _ => new KayaContext(_.GetRequiredService<IKayaHttpClient>(), credentials));
         services.AddScoped<KayaExceptionFilter>();
         services.AddTransient<KayaTraceIdentifierLoggerMiddleware>();

@@ -7,6 +7,7 @@ using Kaya.Service.WebAPI.Attributes;
 using Kaya.Service.WebAPI.Contracts;
 using Kaya.Service.WebAPI.Contracts.External;
 using Kaya.Service.WebAPI.Contracts.Project;
+using Kaya.Service.WebAPI.Contracts.Project.Dashboard;
 using Kaya.Service.WebAPI.Contracts.Project.Settings;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -86,9 +87,14 @@ public class ProjectController : ControllerBase
     }
 
     [HttpPost("dashboard")]
-    public async Task<IActionResult> GetDashboard(PrivateKeyOnlyRequestDto dto)
+    public async Task<IActionResult> GetDashboard(ProjectPrivateKeyOnlyRequestDto dto)
     {
-        return null;
+        var response = await mediator.Send(new GetProjectDashboardQuery()
+        {
+            PrivateKey = dto.PrivateKey,
+        });
+
+        return Ok(mapper.Map<ProjectDashboardDto>(response));
     }
 
     [HttpPost("check")]

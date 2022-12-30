@@ -15,7 +15,7 @@ public class SystemEventTagSetting
         public void Configure(EntityTypeBuilder<SystemEventTagSetting> builder)
         {
             builder.ToTable("systemEventTagSetting");
-            builder.HasKey(s => new {s.Tag});
+            builder.HasKey(s => s.Tag);
         }
     }
 }

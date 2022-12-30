@@ -4,18 +4,18 @@ namespace Kaya;
 
 public class KayaHttpClient : IKayaHttpClient
 {
-    private readonly IKayaCredentials credentials;
+    private readonly string endpoint;
     private readonly HttpClient client;
 
-    public KayaHttpClient(IKayaCredentials credentials)
+    public KayaHttpClient(string endpoint)
     {
-        this.credentials = credentials;
+        this.endpoint = endpoint;
         client = new HttpClient();
     }
     
     public Task<HttpResponseMessage> LogAsync(Event obj)
     {
-        var baseUri = new Uri(credentials.Endpoint);
+        var baseUri = new Uri(endpoint);
         var uri = new Uri(baseUri, "api/event/log");
         return client.PostAsJsonAsync(uri, obj);
     }
