@@ -50,5 +50,9 @@ public class AutofacModule : Module
         builder.RegisterType<AuthFilter>()
             .AsSelf()
             .InstancePerLifetimeScope();
+
+        builder.RegisterType<SystemSettings>()
+            .AsSelf()
+            .SingleInstance();
     }
 }

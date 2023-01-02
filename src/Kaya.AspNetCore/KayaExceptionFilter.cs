@@ -13,7 +13,8 @@ public class KayaExceptionFilter : IAsyncExceptionFilter
 
     public Task OnExceptionAsync(ExceptionContext context)
     {
-        // todo: log error
+        var ex = context.Exception;
+        kayaContext.LogError(ex.Message, ex);
         return Task.CompletedTask;
     }
 }

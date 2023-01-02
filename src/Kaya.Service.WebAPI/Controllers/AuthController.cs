@@ -5,6 +5,7 @@ using Kaya.Service.Application.Services.Interfaces;
 using Kaya.Service.WebAPI.Attributes;
 using Kaya.Service.WebAPI.Contracts;
 using Kaya.Service.WebAPI.Contracts.User;
+using Kaya.Service.WebAPI.Settings;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,12 +18,14 @@ public class AuthController : ControllerBase
     private readonly IAuthService authService;
     private readonly IMediator mediator;
     private readonly IMapper mapper;
+    private readonly SystemSettings systemSettings;
 
-    public AuthController(IAuthService authService, IMediator mediator, IMapper mapper)
+    public AuthController(IAuthService authService, IMediator mediator, IMapper mapper, SystemSettings systemSettings)
     {
         this.authService = authService;
         this.mediator = mediator;
         this.mapper = mapper;
+        this.systemSettings = systemSettings;
     }
 
     [HttpPost("login")]
@@ -38,6 +41,9 @@ public class AuthController : ControllerBase
     [HttpPost("register")]
     public async Task<IActionResult> Register(LoginDto dto)
     {
+        if (systemSettings.EnableRegistration == false)
+            return BadRequest("Registration disabled");
+        
         var response = await mediator.Send(new SaveUserCommand
         {
             Id = null,

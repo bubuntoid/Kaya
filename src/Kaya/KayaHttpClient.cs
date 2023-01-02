@@ -15,6 +15,8 @@ public class KayaHttpClient : IKayaHttpClient
     
     public Task<HttpResponseMessage> LogAsync(Event obj)
     {
+        obj.Tags = obj.Tags.Distinct().ToList();
+        
         var baseUri = new Uri(endpoint);
         var uri = new Uri(baseUri, "api/event/log");
         return client.PostAsJsonAsync(uri, obj);

@@ -6,7 +6,6 @@ using FluentMigrator.Runner;
 using Hangfire;
 using Hangfire.PostgreSql;
 using Kaya.Service.Application.Commands;
-using Kaya.AspNetCore;
 using Kaya.Service.Domain.Migrations;
 using Kaya.Service.WebAPI;
 using Kaya.Service.WebAPI.Extensions;
@@ -22,7 +21,7 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
     });
 
 var dbSettings = new DatabaseSettings(builder.Configuration);
-var kayaSettings = new KayaSettings(builder.Configuration);
+var kayaSettings = new SystemSettings(builder.Configuration);
 
 // Add services to the container.
 
@@ -32,7 +31,6 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddHangfire(x => x.UsePostgreSqlStorage(dbSettings.ConnectionString));
 builder.Services.AddHangfireServer();
 builder.Services.AddMediatR(typeof(AddEventCommand));
-builder.Services.AddKayaLogging(kayaSettings);
 
 builder.Services
     .AddLogging(c => c.AddFluentMigratorConsole())
@@ -57,8 +55,6 @@ var autofacContainer = app.Services.GetAutofacRoot();
 
 GlobalConfiguration.Configuration.UsePostgreSqlStorage(dbSettings.ConnectionString)
     .UseMediatR(autofacContainer.Resolve<IMediator>());
-
-app.UseKayaLogging();
 
 app.UseRouting();
 

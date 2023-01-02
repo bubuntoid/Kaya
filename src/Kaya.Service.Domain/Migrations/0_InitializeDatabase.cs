@@ -45,11 +45,13 @@ public class InitializeDatabaseMigration : Migration
             .WithColumn("tag").AsString(64).NotNullable().PrimaryKey()
             .WithColumn("style").AsString(64).NotNullable();
 
-        Insert.IntoTable("systemEventTagSetting").Row(new { tag = "Information", style = " " });
         Insert.IntoTable("systemEventTagSetting").Row(new { tag = "Error", style = " " });
-        Insert.IntoTable("systemEventTagSetting").Row(new { tag = "Trace", style = " " });
+        Insert.IntoTable("systemEventTagSetting").Row(new { tag = "Warning", style = " " });
         Insert.IntoTable("systemEventTagSetting").Row(new { tag = "Success", style = " " });
+        
         Insert.IntoTable("systemEventTagSetting").Row(new { tag = "Debug", style = " " });
+        Insert.IntoTable("systemEventTagSetting").Row(new { tag = "Trace", style = " " });
+        Insert.IntoTable("systemEventTagSetting").Row(new { tag = "Information", style = " " });
 
     }
 

@@ -26,7 +26,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Kaya.Service.Application\Kaya.Service.Application.csproj" />
-      <ProjectReference Include="..\Kaya.AspNetCore\Kaya.AspNetCore.csproj" />
       <ProjectReference Include="..\Kaya.Service.WebAPI.Contracts\Kaya.Service.WebAPI.Contracts.csproj" />
     </ItemGroup>
 

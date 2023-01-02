@@ -1,4 +1,5 @@
 ﻿using System.Collections.Concurrent;
+using Kaya.Extensions;
 
 namespace Kaya;
 
@@ -14,7 +15,7 @@ public class KayaContext : IKayaContext
         this.httpClient = httpClient;
         this.credentials = credentials;
     }
-    
+
     public void AddTag(string tag)
     {
         Tags.Add(tag);
@@ -25,16 +26,18 @@ public class KayaContext : IKayaContext
         Headers.Add(key, value);
     }
 
-    public void LogError(string message)
-    {
-        var obj = new Event
-        {
-            Tags = Tags,
-            Headers = Headers,
-            Message = message,
-            PrivateKey = credentials.ProjectPrivateKey,
-        };
-
-        httpClient.LogAsync(obj);
-    }
+    public void Log(string message,
+        string content = null,
+        IEnumerable<string> tags = null,
+        IDictionary<string, string> headers = null) =>
+        httpClient.LogAsync(
+            new Event
+            {
+                Message = message,
+                PrivateKey = credentials.ProjectPrivateKey,
+                Tags = Tags.ConcatIfNotNull(tags).ToList(),
+                Headers = Headers.ConcatIfNotNull(headers).ToDictionary(s => s.Key, s => s.Value),
+                Content = content
+            }
+        );
 }
