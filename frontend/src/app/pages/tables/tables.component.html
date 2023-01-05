@@ -1,0 +1,266 @@
+<div class="header bg-gradient-secondary pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+      <div class="row">
+        <div class="col-xl-3 col-lg-6">
+          <a href="javascript:void(0)" (click)="updateOptions('Information')">
+            <div class="card card-stats mb-4 mb-xl-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0">Errors</h5>
+                    <span class="h2 font-weight-bold mb-0">350,897</span>
+                  </div>
+                  <div class="col-auto">
+                    <div class="icon icon-shape bg-primary text-white rounded-circle shadow">
+                      <i class="fas fa-bug"></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-3 mb-0 text-muted text-sm">
+                  <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                  <span class="text-nowrap">Since yesterday</span>
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-xl-3 col-lg-6">
+          <a href="javascript:void(0)" (click)="updateOptions('Warnings')">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Warnings</h5>
+                  <span class="h2 font-weight-bold mb-0">2,356</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-primary text-white rounded-circle shadow">
+                    <i class="fas fa-exclamation"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-muted text-sm">
+                <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i> 3.48%</span>
+                <span class="text-nowrap">Since yesterday</span>
+              </p>
+            </div>
+          </div>
+        </a>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <a href="javascript:void(0)" (click)="updateOptions('Succeed')">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Succeed</h5>
+                  <span class="h2 font-weight-bold mb-0">924</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-primary text-white rounded-circle shadow">
+                    <i class="fas fa-check"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-muted text-sm">
+                <span class="text-warning mr-2"><i class="fas fa-arrow-down"></i> 1.10%</span>
+                <span class="text-nowrap">Since yesterday</span>
+              </p>
+            </div>
+          </div>
+        </a>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <a href="javascript:void(0)" (click)="updateOptions('Information')">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Information</h5>
+                  <span class="h2 font-weight-bold mb-0">49,65%</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-primary text-white rounded-circle shadow">
+                    <i class="fas fa-clipboard"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-muted text-sm">
+                <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span>
+                <span class="text-nowrap">Since yesterday</span>
+              </p>
+            </div>
+          </div>
+          </a>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <div class="row">
+
+            <div class="col-md-1">
+            <div class="form-group">
+              <select class="form-control selectpicker" data-style="btn btn-link" id="exampleFormControlSelect1">
+                <option>25</option>
+                <option selected>50</option>
+                <option>75</option>
+                <option>100</option>
+                <option>150</option>
+                <option>200</option>
+              </select>
+            </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <div class="input-group mb-4">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+                  </div>
+                  <input class="form-control" placeholder="Search" type="text">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-2">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Select tag" list="list-timezone"
+                  id="input-datalist" [(ngModel)]="tagFilter">
+                <datalist id="list-timezone">
+                  <option>Asia/Aden</option>
+                  <option>Asia/Aqtau</option>
+                  <option>Asia/Baghdad</option>
+                  <option>Asia/Barnaul</option>
+                  <option>Asia/Chita</option>
+                  <option>Asia/Dhaka</option>
+                  <option>Asia/Famagusta</option>
+                  <option>Asia/Hong_Kong</option>
+                  <option>Asia/Jayapura</option>
+                  <option>Asia/Kuala_Lumpur</option>
+                  <option>Asia/Jakarta</option>
+                </datalist>
+              </div>
+            </div>
+
+            <div class="col-md-2">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Select header" list="list-timezone"
+                  id="input-datalist" [(ngModel)]="headerKeyFilter">
+                <datalist id="list-timezone">
+                  <option>Asia/Aden</option>
+                  <option>Asia/Aqtau</option>
+                  <option>Asia/Baghdad</option>
+                  <option>Asia/Barnaul</option>
+                  <option>Asia/Chita</option>
+                  <option>Asia/Dhaka</option>
+                  <option>Asia/Famagusta</option>
+                  <option>Asia/Hong_Kong</option>
+                  <option>Asia/Jayapura</option>
+                  <option>Asia/Kuala_Lumpur</option>
+                  <option>Asia/Jakarta</option>
+                </datalist>
+              </div>
+            </div>
+
+            <div *ngIf="headerKeyFilter != ''" class="col-md-2">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Select header value" list="list-timezone"
+                  id="input-datalist">
+                <datalist id="list-timezone">
+                  <option>Asia/Aden</option>
+                  <option>Asia/Aqtau</option>
+                  <option>Asia/Baghdad</option>
+                  <option>Asia/Barnaul</option>
+                  <option>Asia/Chita</option>
+                  <option>Asia/Dhaka</option>
+                  <option>Asia/Famagusta</option>
+                  <option>Asia/Hong_Kong</option>
+                  <option>Asia/Jayapura</option>
+                  <option>Asia/Kuala_Lumpur</option>
+                  <option>Asia/Jakarta</option>
+                </datalist>
+              </div>
+            </div>
+
+            
+            <div class="col text-right">
+              <button class="btn btn-primary btn-neutral">Search</button>
+            </div>
+
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center mb-0">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Message</th>
+                <th scope="col">Tags</th>
+                <th scope="col">Headers</th>
+                <th scope="col">Date</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <a href="#">message message message message message message message message</a>
+                </td>
+                <td>
+                  Error, Information
+                </td>
+                <td>
+                  RequestId
+                </td>
+                <td>
+                  01/01/2022 01:45:43
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer py-4">
+          <nav aria-label="...">
+           
+
+            <ul class="pagination justify-content-end mb-0">
+              <li class="page-item disabled">
+                <a class="page-link" href="javascript:void(0)" tabindex="-1">
+                  <i class="fas fa-angle-left"></i>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="javascript:void(0)">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0)">2 <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0)">
+                  <i class="fas fa-angle-right"></i>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

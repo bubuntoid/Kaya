@@ -11,6 +11,7 @@ public class InitializeDatabaseMigration : Migration
             .WithColumn("id").AsGuid().NotNullable().PrimaryKey()
             .WithColumn("login").AsString(64).NotNullable()
             .WithColumn("password").AsString(64).NotNullable()
+            .WithColumn("name").AsString(64).NotNullable()
             .WithColumn("privateKey").AsString(64).NotNullable().Unique();
 
         Create.Table("project")
@@ -36,6 +37,10 @@ public class InitializeDatabaseMigration : Migration
             .WithColumn("key").AsString(254).NotNullable().PrimaryKey()
             .WithColumn("value").AsString(254).NotNullable();
 
+        Create.Table("eventHeader")
+            .WithColumn("eventId").AsGuid().NotNullable().PrimaryKey().ForeignKey("event", "id")
+            .WithColumn("tag").AsString(254).NotNullable().PrimaryKey();
+        
         Create.Table("projectEventTagSetting")
             .WithColumn("projectId").AsGuid().NotNullable().PrimaryKey().ForeignKey("project", "id")
             .WithColumn("tag").AsString(64).NotNullable().PrimaryKey()

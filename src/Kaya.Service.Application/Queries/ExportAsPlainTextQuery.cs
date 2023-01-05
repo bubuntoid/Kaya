@@ -32,7 +32,7 @@ public class ExportAsPlainTextQuery : IRequest<string>, IProjectAuthServiceRequi
             foreach (var item in events)
             {
                 stringBuilder.Append($"{item.Date} ");
-                stringBuilder.Append($"[{string.Join(", ", item.Tags.Select(s => s.ToUpper()))}] ");
+                stringBuilder.Append($"[{string.Join(", ", item.Tags.Select(s => s.Tag.ToUpper()))}] ");
                 stringBuilder.AppendLine($"({string.Join(", ", item.Headers.Select(s => s.Key.ToUpper() + ": " + s.Value))})");
                 stringBuilder.AppendLine(item.Content.Content);
             }

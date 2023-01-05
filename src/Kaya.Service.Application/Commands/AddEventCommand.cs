@@ -32,17 +32,20 @@ public class AddEventCommand : IRequest<DomainError>, IProjectAuthServiceRequire
                 Id = Guid.NewGuid(),
                 Date = DateTime.Now,
                 ProjectId = authService.Project.Id,
-                
-                Tags = request.Tags,
                 Message = request.Message,
                 Content = new EventContent
                 {
                     Content = request.Content, 
                 },
-                Headers = request.Headers.Select(tag => new EventHeader
+                
+                Headers = request.Headers.Select(header => new EventHeader
                 {
-                    Key = tag.Key,
-                    Value = tag.Value,
+                    Key = header.Key,
+                    Value = header.Value,
+                }).ToList(),
+                Tags = request.Tags.Select(tag => new EventTag
+                {
+                    Tag = tag,
                 }).ToList(),
             }, cancellationToken);
 

@@ -45,7 +45,7 @@ public class GetEventsQuery : IRequest<IReadOnlyCollection<Event>>, IProjectAuth
                 query = query.Where(s => s.Date <= request.To);
 
             if (string.IsNullOrWhiteSpace(request.Tag) == false)
-                query = query.Where(s => s.Tags.Contains(request.Tag));
+                query = query.Where(s => s.Tags.Any(tag => tag.Tag == request.Tag));
 
             if (request.Offset != default)
                 query = query.Skip(request.Offset);

@@ -13,11 +13,11 @@ public class Event
     
     public DateTime Date { get; set; }
     
-    public ICollection<string> Tags { get; set; }
-
     public virtual EventContent Content { get; set; }
     
     public virtual Project Project { get; set; }
+    
+    public virtual ICollection<EventTag> Tags { get; set; }
     
     public virtual ICollection<EventHeader> Headers { get; set; } = new HashSet<EventHeader>();
 
@@ -31,11 +31,8 @@ public class Event
             builder.HasOne(s => s.Content);
             
             builder.HasMany(s => s.Headers);
-            
-            builder.Property(s => s.Tags)
-                .HasConversion(
-                    v => string.Join(',', v),
-                    v => v.Split(',', StringSplitOptions.RemoveEmptyEntries));
+
+            builder.HasMany(s => s.Tags);
         }
     }
 }

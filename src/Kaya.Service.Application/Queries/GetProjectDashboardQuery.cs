@@ -35,7 +35,7 @@ public class GetProjectDashboardQuery : IRequest<ProjectDashboard>, IProjectAuth
 
             var dashboard = new ProjectDashboard();
 
-            var tags = events.SelectMany(s => s.Tags).Concat(systemTags.Select(s => s.Tag)).Distinct().ToList();
+            var tags = events.SelectMany(s => s.Tags.Select(tag => tag.Tag)).Concat(systemTags.Select(s => s.Tag)).Distinct().ToList();
             foreach (var tag in tags)
                 dashboard.Tags.Add(tag, new List<DateTime>());
 
@@ -50,7 +50,7 @@ public class GetProjectDashboardQuery : IRequest<ProjectDashboard>, IProjectAuth
             foreach (var item in events)
             {
                 foreach (var tag in item.Tags)
-                    dashboard.Tags[tag].Add(item.Date);
+                    dashboard.Tags[tag.Tag].Add(item.Date);
 
                 foreach (var header in item.Headers)
                 {
