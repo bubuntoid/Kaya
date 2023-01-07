@@ -8,8 +8,6 @@ public class LoginResultDto
     
     public string Login { get; set; }
     
-    public string Password { get; set; }
-    
     public string PrivateKey { get; set; }
 
     public virtual ICollection<ProjectDto> Projects { get; set; } = new List<ProjectDto>();

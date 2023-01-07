@@ -39,20 +39,24 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("register")]
-    public async Task<IActionResult> Register(LoginDto dto)
+    public async Task<IActionResult> Register(RegisterDto dto)
     {
         if (systemSettings.EnableRegistration == false)
             return BadRequest("Registration disabled");
         
-        var response = await mediator.Send(new SaveUserCommand
+        await mediator.Send(new SaveUserCommand
         {
             Id = null,
+            Name = dto.Name,
             Login = dto.Login,
             Password = dto.Password,
             NewPrivateKey = Guid.NewGuid().ToString(),
         });
 
-        return Ok(response);
+        var error = await authService.AuthorizeAsync(dto.Login, dto.Password);
+        return error == null 
+            ? Ok(mapper.Map<LoginResultDto>(authService.User))
+            : Unauthorized();
     }
 
     [AuthFilter(IsReusable = false)]

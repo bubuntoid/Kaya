@@ -9,7 +9,7 @@ public class InitializeDatabaseMigration : Migration
     {
         Create.Table("user")
             .WithColumn("id").AsGuid().NotNullable().PrimaryKey()
-            .WithColumn("login").AsString(64).NotNullable()
+            .WithColumn("login").AsString(64).NotNullable().Unique()
             .WithColumn("password").AsString(64).NotNullable()
             .WithColumn("name").AsString(64).NotNullable()
             .WithColumn("privateKey").AsString(64).NotNullable().Unique();

@@ -8,6 +8,7 @@ namespace Kaya.Service.Application.Commands;
 public class SaveUserCommand : IRequest<User>
 {
     public Guid? Id { get; set; }
+    public string Name { get; set; }
     public string Login { get; set; }
     public string Password { get; set; }
     public string NewPrivateKey { get; set; }
@@ -25,7 +26,7 @@ public class SaveUserCommand : IRequest<User>
         {
             User user;
             
-            if (request.Id.HasValue)
+            if (request.Id.HasValue == false)
             {
                 user = new User
                 {
@@ -39,6 +40,7 @@ public class SaveUserCommand : IRequest<User>
                 user = await dbContext.Users.FirstAsync(s => s.Id == request.Id, cancellationToken: cancellationToken);
             }
 
+            user.Name = request.Name;
             user.Login = request.Login;
             user.Password = request.Password;
             user.PrivateKey = request.NewPrivateKey;

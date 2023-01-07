@@ -30,15 +30,15 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                 </div>
-                <input class="form-control" placeholder="Name" type="text">
+                <input class="form-control" placeholder="Name" type="text" [(ngModel)]="name">
               </div>
             </div>
             <div class="form-group">
               <div class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                  <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
                 </div>
-                <input class="form-control" placeholder="Email" type="email">
+                <input class="form-control" placeholder="Login" [(ngModel)]="login">
               </div>
             </div>
             <div class="form-group">
@@ -46,7 +46,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                 </div>
-                <input class="form-control" placeholder="Password" type="password">
+                <input class="form-control" placeholder="Password" type="password" [(ngModel)]="password">
               </div>
             </div>
             <div class="row my-4">
@@ -54,7 +54,7 @@
               </div>
             </div>
             <div class="text-center">
-              <button type="button" class="btn btn-primary mt-4">Create account</button>
+              <button type="button" class="btn btn-primary mt-4" (click)="onRegisterClick()">Create account</button>
             </div>
           </form>
         </div>

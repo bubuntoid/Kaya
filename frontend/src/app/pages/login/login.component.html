@@ -27,9 +27,9 @@
             <div class="form-group mb-3">
               <div class="input-group input-group-alternative">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                  <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
                 </div>
-                <input class="form-control" placeholder="Email" type="email">
+                <input class="form-control" placeholder="Login" [(ngModel)]="login">
               </div>
             </div>
             <div class="form-group">
@@ -37,13 +37,13 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                 </div>
-                <input class="form-control" placeholder="Password" type="password">
+                <input class="form-control" placeholder="Password" type="password" [(ngModel)]="password">
               </div>
             </div>
             <div class="custom-control custom-control-alternative custom-checkbox">
             </div>
             <div class="text-center">
-              <button type="button" class="btn btn-primary my-4">Sign in</button>
+              <button type="button" class="btn btn-primary my-4" (click)="onLoginClick()">Sign in</button>
             </div>
           </form>
         </div>

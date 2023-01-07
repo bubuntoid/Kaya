@@ -19,12 +19,20 @@
           <div class=" dropdown-header noti-title">
             <h6 class="text-overflow m-0">Welcome!</h6>
           </div>
+          <a routerLinkActive="active" [routerLink]="['/projects']" class="dropdown-item">
+            <i class="ni ni-chart-bar-32"></i>
+            <span>Project name</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a routerLinkActive="active" [routerLink]="['/projects']" class="dropdown-item">
+            <i class="ni ni-collection"></i>
+            <span>Projects</span>
+          </a>
           <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">
             <i class="ni ni-settings-gear-65"></i>
             <span>Settings</span>
           </a>
-          <div class="dropdown-divider"></div>
-          <a href="#!" class="dropdown-item">
+          <a href="#!" class="dropdown-item" (click)="logout()">
             <i class="ni ni-user-run"></i>
             <span>Logout</span>
           </a>
