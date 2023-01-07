@@ -23,15 +23,20 @@ export class SidebarComponent implements OnInit {
   public menuItems: any[];
   public isCollapsed = true;
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(public router: Router, private authService: AuthService) { }
 
   ngOnInit() {
+    console.log(this.router.url)
     this.menuItems = ROUTES.filter(menuItem => menuItem);
     this.router.events.subscribe((event) => {
       this.isCollapsed = true;
    });
   }
 
+  isVisible() {
+    return this.router.url != '/projects' && 
+      this.router.url != '/user-profile';
+  }
   
   logout()  {
     this.authService.logout();
