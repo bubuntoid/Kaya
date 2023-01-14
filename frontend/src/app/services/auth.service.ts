@@ -30,6 +30,25 @@ export class AuthService {
     });
   }
 
+  public fetchMyProfile(subscribe: () => void) {
+    var key = localStorage.getItem(this.USER_TOKEN_ITEM_NAME)
+    this.http.post<any>(this.url + 'check', {privateKey: key}).subscribe(response => {
+      localStorage.setItem(this.USER_TOKEN_ITEM_NAME, response.privateKey);
+      localStorage.setItem(this.USER_CREDENTIALS_ITEM_NAME, JSON.stringify(response));
+      subscribe();
+    }, error => {
+      // todo: handle error
+    });
+  }
+
+  public getProjects(){
+    return JSON.parse(localStorage.getItem(this.USER_CREDENTIALS_ITEM_NAME)).projects;
+  }
+
+  public getUserName(){
+    return JSON.parse(localStorage.getItem(this.USER_CREDENTIALS_ITEM_NAME)).name;
+  }
+
   public register(name: string, login: string, password: string) {
     this.http.post<any>(this.url + 'register', {login, name, password}).subscribe(response => {
       localStorage.setItem(this.USER_TOKEN_ITEM_NAME, response.privateKey);

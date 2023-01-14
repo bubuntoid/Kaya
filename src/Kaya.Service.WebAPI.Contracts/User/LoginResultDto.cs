@@ -10,5 +10,7 @@ public class LoginResultDto
     
     public string PrivateKey { get; set; }
 
+    public string Name { get; set; }
+
     public virtual ICollection<ProjectDto> Projects { get; set; } = new List<ProjectDto>();
 }

@@ -5,7 +5,7 @@
   <div class="container-fluid d-flex">
     <div class="row">
       <div class="col-lg-12 col-md-12">
-        <h1 class="display-2 text-black">Hello, root</h1>
+        <h1 class="display-2 text-black">Hello, {{name}}</h1>
         <p class="text-black mt-0 mb-5">This is your projects page</p>
       </div>
     </div>
@@ -27,20 +27,20 @@
               </div>
             </div>
           </div>
-          <div class="card-body">
-
-            <div class="row">
-              <table class="table">
+          <div>
+            <div class="table-responsive">
+              <!-- Projects table -->
+              <table class="table align-items-center">
                 <thead>
                   <tr>
-                    <th>Name</th>
-                    <th class="text-right">Actions</th>
+                    <th scope="col">Name</th>
+                    <th scope="col" class="text-right">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Ethereal</td>
-                    <td class="td-actions text-right">
+                  <tr *ngFor="let project of projects">
+                    <th scope="row">{{project.name}}</th>
+                    <th scope="row" class="td-actions text-right">
                       <button type="button" rel="tooltip" class="btn btn-icon btn-md" data-original-title=""
                         title="">
                         <i class="ni ni-tv-2"></i>
@@ -49,20 +49,7 @@
                         title="">
                         <i class="ni ni-settings-gear-65"></i>
                       </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Ethereal-2</td>
-                    <td class="td-actions text-right">
-                      <button type="button" rel="tooltip" class="btn btn-icon btn-md" data-original-title=""
-                        title="">
-                        <i class="ni ni-tv-2"></i>
-                      </button>
-                      <button type="button" rel="tooltip" class="btn btn-icon btn-md" data-original-title=""
-                        title="">
-                        <i class="ni ni-settings-gear-65"></i>
-                      </button>
-                    </td>
+                    </th>
                   </tr>
                 </tbody>
               </table>

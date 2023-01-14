@@ -22,15 +22,18 @@ export class SidebarComponent implements OnInit {
 
   public menuItems: any[];
   public isCollapsed = true;
+  public name;
+  public projects: any[];
 
   constructor(public router: Router, private authService: AuthService) { }
 
   ngOnInit() {
-    console.log(this.router.url)
     this.menuItems = ROUTES.filter(menuItem => menuItem);
     this.router.events.subscribe((event) => {
       this.isCollapsed = true;
    });
+   this.name = this.authService.getUserName();
+   this.projects = this.authService.getProjects();
   }
 
   isVisible() {
@@ -41,4 +44,5 @@ export class SidebarComponent implements OnInit {
   logout()  {
     this.authService.logout();
   }
+
 }
