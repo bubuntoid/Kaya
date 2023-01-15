@@ -1,0 +1,53 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{modalTitle}}</h4>
+</div>
+<div class="modal-body">
+
+
+  <div class="row">
+    <div class="col-4">
+      Name
+    </div>
+
+    <div class="col">
+      <div class="form-group">
+        <div class="input-group input-group-alternative">
+          <div class="input-group-prepend">
+            <span class="input-group-text"></span>
+          </div>
+          <input class="form-control" type="text" placeholder="Name" [(ngModel)]="projectName">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+      Private key
+    </div>
+
+    <div class="col">
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Private key"></textarea>
+  </div>
+  </div>
+
+  
+  <br>
+  <div class="row">
+    <div class="col-4">
+      Archived
+    </div>
+
+    <div class="col">
+      <label class="custom-toggle">
+        <input type="checkbox">
+        <span class="custom-toggle-slider rounded-circle"></span>
+      </label>
+    </div>
+  </div>
+
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" (click)="click()">{{buttonText}}</button>
+</div>

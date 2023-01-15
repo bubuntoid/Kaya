@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ProjectModalComponent } from 'src/app/modals/project-modal/project-modal.component';
 import { AuthService } from 'src/app/services/auth.service';
 
 
@@ -12,7 +14,7 @@ export class ProjectsComponent implements OnInit {
   projects: any[];
   name;
 
-  constructor(private authService: AuthService) {   }
+  constructor(private authService: AuthService, private modalService : NgbModal) {   }
 
   ngOnInit() {
     this.name = this.authService.getUserName();
@@ -23,5 +25,14 @@ export class ProjectsComponent implements OnInit {
     });
   }
 
+  open() {
+		const modalRef = this.modalService.open(ProjectModalComponent);
+    modalRef.componentInstance.modalTitle = 'New project';
+    modalRef.componentInstance.buttonText = 'Save';
+    modalRef.componentInstance.onClick = () =>
+    {
+      window.alert('zxc');
+    }
+	}
   
 }
